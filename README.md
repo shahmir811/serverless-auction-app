@@ -19,14 +19,13 @@
 
 Covered the following AWS services:
 
-| Name             | Description                         |
-| ---------------- | ----------------------------------- |
-| API Gateway      | Used for making API calls           |
-| Auth0            | For authentication incoming request |
-| Lambda Functions | Implemented backend logic           |
-| DynamoDB         | NoSQL database storage              |
-| S3 Bucket        | Used for storing images             |
-| Auth0            | Used for authentication             |
-| EventBridge      | For firing custom events            |
-| SQS              | Queue service                       |
-| SES              | Sending emails to highest bidder    |
+| Name             | Description                            |
+| ---------------- | -------------------------------------- |
+| API Gateway      | Used for making API calls              |
+| Auth0            | For authentication of incoming request |
+| Lambda Functions | Implemented backend logic              |
+| DynamoDB         | NoSQL database storage                 |
+| S3 Bucket        | Used for storing images                |
+| EventBridge      | For firing custom events               |
+| SQS              | Queue service                          |
+| SES              | Sending emails to highest bidder       |
