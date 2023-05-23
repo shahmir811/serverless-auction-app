@@ -5,7 +5,7 @@ plugins:
 
 provider:
   name: aws
-  runtime: nodejs16.x
+  runtime: nodejs12.x
   memorySize: 256
   stage: ${opt:stage, 'dev'}
   region: ap-southeast-1
@@ -21,7 +21,7 @@ resources:
   Resources:
     AuctionsTable: ${file(resources/AuctionsTable.yml):AuctionsTable}
     AuctionsBucket: ${file(resources/AuctionsBucket.yml):AuctionsBucket}
-    # AuctionsBucketPolicy: ${file(resources/AuctionsBucket.yml):AuctionsBucketPolicy}
+    AuctionsBucketPolicy: ${file(resources/AuctionsBucket.yml):AuctionsBucketPolicy}
 
 functions:
   createAuction:
@@ -30,6 +30,7 @@ functions:
       - http:
           method: POST
           path: /auction
+          cors: true
           authorizer: ${self:custom.authorizer}
 
   getAuctions:
@@ -38,6 +39,7 @@ functions:
       - http:
           method: GET
           path: /auctions
+          cors: true
           authorizer: ${self:custom.authorizer}
 
   getAuction:
@@ -46,6 +48,7 @@ functions:
       - http:
           method: GET
           path: /auction/{id}
+          cors: true
           authorizer: ${self:custom.authorizer}
 
   placeBid:
@@ -54,6 +57,7 @@ functions:
       - http:
           method: PATCH
           path: auction/{id}/bid
+          cors: true
           authorizer: ${self:custom.authorizer}
 
   uploadAuctionPicture:
@@ -62,6 +66,7 @@ functions:
       - http:
           method: PATCH
           path: auction/{id}/picture
+          cors: true
           authorizer: ${self:custom.authorizer}
 
   processAuctions:
