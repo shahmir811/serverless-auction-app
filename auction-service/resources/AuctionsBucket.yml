@@ -2,11 +2,11 @@ AuctionsBucket:
   Type: AWS::S3::Bucket
   Properties:
     BucketName: ${self:custom.AuctionsBucket.name}
-    LifecycleConfiguration:
+    PublicAccessBlockConfiguration:
+      BlockPublicAcls: false
+    OwnershipControls:
       Rules:
-        - Id: ExpirePictures
-          Status: Enabled
-          ExpirationInDays: 1
+        - ObjectOwnership: ObjectWriter
 
 AuctionsBucketPolicy:
   Type: AWS::S3::BucketPolicy
